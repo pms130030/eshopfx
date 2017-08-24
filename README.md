@@ -1,2 +1,8 @@
 # eshopfx
 A JavaFX prototype for a universal shopping cart system.
+
+
+
+Authored by Parth Sutaria, Daniel Lecheler
+University of Dallas at Texas
+Summer 2017 - CS 4347.0U1
