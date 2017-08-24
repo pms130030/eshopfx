@@ -7,4 +7,4 @@ Authored by Parth Sutaria, and  Daniel Lecheler
 
 University of Dallas at Texas
 
-Summer 2017 - CS 4347.0U1
+Summer 2017 - Database Systems (CS 4347.0U1)
