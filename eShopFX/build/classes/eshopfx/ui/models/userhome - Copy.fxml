@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eshopfx.ui.controllers.UserhomeController">
+   <children>
+      <TabPane prefHeight="568.0" prefWidth="855.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="User Info">
+            <content>
+                  <VBox>
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="39.0" prefWidth="127.0" text="User Info">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <FlowPane alignment="CENTER_RIGHT" hgap="3.0" prefHeight="0.0" prefWidth="272.0" GridPane.columnIndex="1">
+                                 <children>
+                                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteAccount" text="Delete Account" />
+                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </GridPane>
+                        <Separator prefHeight="8.0" prefWidth="855.0" />
+                        <FlowPane alignment="CENTER_LEFT" hgap="3.0" orientation="VERTICAL" prefHeight="45.0" prefWidth="845.0">
+                           <children>
+                              <Label text="Logged in as" />
+                              <Label fx:id="currEmail">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER_LEFT" hgap="3.0" orientation="VERTICAL" prefHeight="50.0" prefWidth="847.0">
+                           <children>
+                              <Label text="First Name" />
+                              <TextField fx:id="firstName" />
+                              <Label text="Middle Initial" />
+                              <TextField fx:id="minit" />
+                              <Label text="Last Name" />
+                              <TextField fx:id="lastName" />
+                              <Label />
+                           </children>
+                        </FlowPane>
+                        <Label fx:id="nameFeedback" />
+                        <Label prefHeight="39.0" prefWidth="127.0" text="Password">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Separator prefWidth="200.0" />
+                        <FlowPane prefHeight="124.0" prefWidth="845.0">
+                           <children>
+                              <GridPane prefHeight="129.0" prefWidth="330.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Current Password" />
+                                    <Label text="New Password" GridPane.rowIndex="1" />
+                                    <Label text="Confirm New Password" GridPane.rowIndex="2" />
+                                    <PasswordField fx:id="oldPassword" GridPane.columnIndex="1" />
+                                    <PasswordField fx:id="newPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <PasswordField fx:id="confirmPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="passwordFeedback" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="BOTTOM_CENTER" hgap="3.0" prefHeight="223.0" prefWidth="845.0">
+                           <children>
+                              <Button fx:id="btnSaveChanges" mnemonicParsing="false" onAction="#saveChanges" text="Save Changes" />
+                              <Button fx:id="btnRevertChanges" mnemonicParsing="false" onAction="#revertChanges" text="Revert Changes" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+            </content>
+          </Tab>
+          <Tab text="Addresses">
+            <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="recipientTable">
+                          <columns>
+                            <TableColumn fx:id="firstNameCol" prefWidth="118.0" text="Name" />
+                            <TableColumn fx:id="streetCol" prefWidth="186.0" text="Street Address" />
+                              <TableColumn fx:id="cityCol" prefWidth="125.0" text="City" />
+                              <TableColumn fx:id="stateCol" prefWidth="61.0" text="State" />
+                              <TableColumn fx:id="zipCol" prefWidth="92.0" text="Zip Code" />
+                              <TableColumn fx:id="countryCol" prefWidth="66.0" text="Country" />
+                          </columns>
+                        </TableView>
+                        <VBox prefHeight="539.0" prefWidth="208.0">
+                           <children>
+                              <VBox spacing="2.0">
+                                 <children>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Ship to">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" text="New" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0" />
+                                    <Label text="First Name">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font></Label>
+                                    <Label fx:id="firstNameLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Middle Initial" />
+                                    <Label fx:id="mInitLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Last Name" />
+                                    <Label fx:id="lastNameLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="17.0" prefWidth="89.0" text="Street Address" />
+                                    <Label fx:id="streetLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="City" />
+                                    <Label fx:id="cityLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="State" />
+                                    <Label fx:id="stateLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Zip Code" />
+                                    <Label fx:id="zipLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Country" />
+                                    <Label fx:id="countryLbl">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <AnchorPane>
+                                 <children>
+                                    <FlowPane alignment="BOTTOM_CENTER" hgap="4.0" layoutX="1.0" layoutY="78.0" prefHeight="114.0" prefWidth="206.0">
+                                       <children>
+                                          <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" text="Update">
+                                             <FlowPane.margin>
+                                                <Insets right="25.0" />
+                                             </FlowPane.margin>
+                                          </Button>
+                                          <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#handleDeleteRecipient" text="Delete" />
+                                          <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" text="Cancel" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </FlowPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
